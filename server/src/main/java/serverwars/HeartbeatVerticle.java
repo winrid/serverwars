@@ -23,6 +23,9 @@ public class HeartbeatVerticle extends AbstractVerticle {
 
     private void handleHeartbeat(RoutingContext routingContext) {
         Heartbeat heartbeat = gson.fromJson(routingContext.getBodyAsString(), Heartbeat.class);
+
+        routingContext.response().write("success");
+        routingContext.response().end();
     }
 
 }
